@@ -32,17 +32,6 @@ service mysql start
 mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'root';"
 mysql -u root -proot -e "FLUSH PRIVILEGES;"
 
-DB_NAME='dbtuts';
-
-apt-get -y install zip
-apt-get -y install subversion
-svn export --non-interactive --trust-server-cert --username santosh_dhanasure@persistent.co.in (santosh_dhanasure@persistent.co.in) --password psl15619\#83dob https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
-mkdir /var/tmp/test
-unzip /var/tmp/UserMgmt.zip -d /var/tmp/test
-mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
-mysql -h localhost -u root -proot $DB_NAME < /var/tmp/test/dbtuts.sql
-rm -R /var/tmp/test
-rm /var/tmp/UserMgmt.zip
 
 #apt-get -y install zip
 #apt-get -y install subversion
