@@ -21,34 +21,34 @@
      ports: '{{port_no}}'
      expose: 80
 
- #- name: Launching db server
- #  docker:
-  #   image: '{{image_name}}'
-   #  name: '{{ db }}'
-    # pull: always
-    # command: "/bin/bash"
-   #  state: started
-   #  tty: yes
-   #  stdin_open: yes
+ - name: Launching db server
+   docker:
+     image: '{{image_name}}'
+     name: '{{ db }}'
+     pull: always
+     command: "/bin/bash"
+     state: started
+     tty: yes
+     stdin_open: yes
 
-# - name: Launching staging server
- #  docker:
-  #   image: '{{image_name}}'
-   #  name: '{{stage}}'
-   #  pull: always
-   #  command: "/bin/bash"
-  #   state: started
-   #  tty: yes
-    # stdin_open: yes
+ - name: Launching staging server
+   docker:
+     image: '{{image_name}}'
+     name: '{{stage}}'
+     pull: always
+     command: "/bin/bash"
+     state: started
+     tty: yes
+     stdin_open: yes
 
  - name: Configuring web app server
    script: docker.sh '{{ app }}' '{{ db }}'
 
-# - name: Configuring database server
- #  script: docker_for_db.sh '{{ db }}'
+ - name: Configuring database server
+   script: docker_for_db.sh '{{ db }}'
 
-# - name: Configuring stagin server
-#   script: docker_selenium.sh '{{ stage }}'
+ - name: Configuring stagin server
+   script: docker_selenium.sh '{{ stage }}'
 
 
 
