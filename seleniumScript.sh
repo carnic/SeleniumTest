@@ -1,4 +1,4 @@
-#mkdir /root/TestSuite
+mkdir /root/TestSuite
 nohup Xvfb :10 -ac &
 export DISPLAY=:10
 firefox --safe-mode &
