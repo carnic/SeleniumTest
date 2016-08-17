@@ -92,7 +92,7 @@ class Test_SignUpLink(unittest.TestCase):
         self.browser.quit()
 
 if __name__ == '__main__':
-     log_file = 'test_result.log'
+     log_file = '/root/TestSuite/test_result.log'
      f = open(log_file, "w")
      runner = unittest.TextTestRunner(f)
      unittest.main(testRunner=runner)
