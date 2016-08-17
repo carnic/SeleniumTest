@@ -1,0 +1,54 @@
+---
+ - name: Make sure docker is running
+   service:
+     name: docker
+     state: restarted
+
+ - name: Launching app server
+
+   environment:
+     http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+     https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+
+   docker:
+     name: '{{ app }}'
+     image: '{{image_name}}'
+     pull: always
+     state: started
+     tty: yes
+     stdin_open: yes
+     command: "/bin/bash"
+     ports: '{{port_no}}'
+     expose: 80
+
+ - name: Launching db server
+   docker:
+     image: '{{image_name}}'
+     name: '{{ db }}'
+     pull: always
+     command: "/bin/bash"
+     state: started
+     tty: yes
+     stdin_open: yes
+
+ - name: Launching staging server
+   docker:
+     image: '{{image_name}}'
+     name: '{{stage}}'
+     pull: always
+     command: "/bin/bash"
+     state: started
+     tty: yes
+     stdin_open: yes
+
+ - name: Configuring web app server
+   script: docker.sh '{{ app }}' '{{ db }}'
+
+ - name: Configuring database server
+   script: docker_for_db.sh '{{ db }}'
+
+ - name: Configuring stagin server
+   script: docker_selenium.sh '{{ stage }}'
+
+
+
