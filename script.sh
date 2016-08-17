@@ -3,7 +3,7 @@
 export http_proxy=http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
 export https_proxy=https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
 
-#rm /var/lib/apt/lists/lock
+rm /var/lib/apt/lists/lock
 rm /var/cache/apt/archives/lock
 
 rm /var/lib/dpkg/lock
