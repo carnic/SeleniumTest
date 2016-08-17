@@ -1,0 +1,5 @@
+---
+- include: zip_task.yml
+#  environment:
+#     http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+#     https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
