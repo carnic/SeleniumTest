@@ -1,0 +1,52 @@
+---
+ -  hosts: mine
+    any_errors_fatal: true
+#    user: sandock
+    environment:
+        http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+        https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+    vars:
+     stage: StagingNode
+     app: WebappNode
+     db: MysqlNode
+    tasks:
+
+     - name: Copy config files
+       copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
+
+     - name: Configure staging container and run the selenium tool
+       script: selenium.sh '{{stage}}'
+       register: result
+     
+#     - name: Check if the selenium testing fullfill 90% criteria
+#       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
+#       when: "'FAILED' in result.stdout_lines"
+
+#     - name: stop the test environment [app]
+#       command: docker stop '{{app}}'
+
+#     - name: stop the test environment [db]
+#       command: docker stop '{{db}}'
+
+#     - name: stop the test environment [stage]
+#       command: docker stop '{{stage}}'
+
+#     - name: Remove the test environment [app]
+#       command: docker rm '{{app}}'
+
+ #    - name: Remove the test environment [db]
+ #      command: docker rm '{{db}}'
+
+ #    - name: Remove the test environment [stage]
+ #      command: docker rm '{{stage}}'
+
+     - name: Check if the selenium testing fullfill 90% criteria
+       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
+       when: "'FAILED' in result.stdout_lines"
+
+#       failed_when: "'FAILED' in result.stdout_lines"
+     - debug: var=result   
+#     - name: Fetch file
+#       fetch: src=/var/tmp/test_result.log dest=/var/tmp validate_checksum=no
+#       synchronize: src=/var/tmp/test_result.log dest=rsync://10.80.34.159:/var/tmp/test_result.log
+       
