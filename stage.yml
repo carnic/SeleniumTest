@@ -15,6 +15,7 @@
     vars:
      app: StageWebappNode
      db: StageMysqlNode
+     stage: StageTestNode
      port_no: 2393:80
      image_name: ubuntu:14.04
     roles: 
