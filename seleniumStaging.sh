@@ -16,9 +16,9 @@ if [ -n "$CID" ] ; then
 fi
 
 # Below code will work on node
-
+sed -i '2i line="http://"' /var/tmp/$FILE_NAME
 cp /var/tmp/$FILE_NAME $d1/var/tmp/
-sed -i '1i line="http://"' $d1/var/tmp/$FILE_NAME
+
 docker cp $CNAME:/var/tmp/$FILE_NAME $d1/var/tmp/$FILE_NAME
 docker exec -it $CNAME /bin/sh -l -c "chmod +x /var/tmp/AutomationTest.sh"
 docker exec -it $CNAME /bin/sh -l -c "/var/tmp/AutomationTest.sh"
