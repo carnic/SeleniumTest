@@ -22,20 +22,20 @@
 #       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
 #       when: "'FAILED' in result.stdout_lines"
 
-#     - name: stop the test environment [app]
-#       command: docker stop '{{app}}'
+     - name: stop the test environment [app]
+       command: docker stop '{{app}}'
 
-#     - name: stop the test environment [db]
-#       command: docker stop '{{db}}'
+     - name: stop the test environment [db]
+       command: docker stop '{{db}}'
 
-#     - name: stop the test environment [stage]
-#       command: docker stop '{{stage}}'
+     - name: stop the test environment [stage]
+       command: docker stop '{{stage}}'
 
-#     - name: Remove the test environment [app]
-#       command: docker rm '{{app}}'
+     - name: Remove the test environment [app]
+       command: docker rm '{{app}}'
 
- #    - name: Remove the test environment [db]
- #      command: docker rm '{{db}}'
+     - name: Remove the test environment [db]
+       command: docker rm '{{db}}'
 
  #    - name: Remove the test environment [stage]
  #      command: docker rm '{{stage}}'
