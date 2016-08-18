@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export http_proxy=http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-export https_proxy=https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+export http_proxy=http://carol_pereira:July13Dday@hjproxy.persistent.co.in:8080
+export https_proxy=https://carol_pereira:July13Dday@hjproxy.persistent.co.in:8080
 
 rm /var/lib/apt/lists/lock
 rm /var/cache/apt/archives/lock
@@ -37,7 +37,7 @@ mysql -u root -proot -e "FLUSH PRIVILEGES;"
 
 apt-get -y install zip
 apt-get -y install subversion
-svn export --non-interactive --trust-server-cert --username santosh_dhanasure@persistent.co.in --password psl15619\#83dob https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
+svn export --non-interactive --trust-server-cert --username carol_pereira@persistent.co.in --password July13Dday https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
 
 mkdir /var/tmp/test
 unzip /var/tmp/UserMgmt.zip -d /var/tmp/test
