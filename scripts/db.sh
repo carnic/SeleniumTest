@@ -43,7 +43,7 @@ mkdir /var/tmp/test
 unzip /var/tmp/UserMgmt.zip -d /var/tmp/test
 
 mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
-mysql -h localhost -u root -proot $DB_NAME < /var/tmp/test/dbtuts.sql
+mysql -h localhost -u root -proot dbtuts < /var/tmp/test/dbtuts.sql
 #mysql -h localhost -u root -proot dbtuts < /var/tmp/UserMgmt/dbtuts.sql
 
 rm -R /var/tmp/test
