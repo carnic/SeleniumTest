@@ -15,7 +15,7 @@
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: selenium.sh '{{stage}}'
+       script: seleniumStaging.sh '{{stage}}'
        register: result
      
      - name: Check if the selenium testing fullfill 90% criteria
