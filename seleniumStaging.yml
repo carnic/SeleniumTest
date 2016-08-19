@@ -17,31 +17,27 @@
      - name: Configure staging container and run the selenium tool
        script: seleniumStaging.sh '{{stage}}'
        register: result
-     
-     - name: Check if the selenium testing fullfill 90% criteria
-       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
-       when: "'FAILED' in result.stdout_lines"
 
-    # - name: stop the test environment [app]
-       #command: docker stop '{{app}}'
+     - name: stop the test environment [app]
+       command: docker stop '{{app}}'
 
-    # - name: stop the test environment [db]
-       #command: docker stop '{{db}}'
+     - name: stop the test environment [db]
+       command: docker stop '{{db}}'
 
-     #- name: stop the test environment [stage]
-       #command: docker stop '{{stage}}'
+     - name: stop the test environment [stage]
+       command: docker stop '{{stage}}'
 
-     #- name: Remove the test environment [app]
-       #command: docker rm '{{app}}'
+     - name: Remove the test environment [app]
+       command: docker rm '{{app}}'
 
-    # - name: Remove the test environment [db]
-       #command: docker rm '{{db}}'
+     - name: Remove the test environment [db]
+       command: docker rm '{{db}}'
 
-     #- name: Remove the test environment [stage]
-       #command: docker rm '{{stage}}'
+     - name: Remove the test environment [stage]
+       command: docker rm '{{stage}}'
 
-     - name: Check if the selenium testing fullfill 90% criteria
-       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
+     - name: Check if the selenium testing fullfill 100% criteria
+       fail: msg="Selenium doesnt accomplish 100% criteria so stoping the play"
        when: "'FAILED' in result.stdout_lines"
 
 #       failed_when: "'FAILED' in result.stdout_lines"
