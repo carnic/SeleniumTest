@@ -37,8 +37,8 @@
      - name: Remove the test environment [db]
        command: docker rm '{{db}}'
 
- #    - name: Remove the test environment [stage]
- #      command: docker rm '{{stage}}'
+     - name: Remove the test environment [stage]
+       command: docker rm '{{stage}}'
 
      - name: Check if the selenium testing fullfill 90% criteria
        fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
