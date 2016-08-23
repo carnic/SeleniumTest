@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export http_proxy=http://carol_pereira:July13Dday@hjproxy.persistent.co.in:8080
-export https_proxy=https://carol_pereira:July13Dday@hjproxy.persistent.co.in:8080
+export http_proxy=http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+export https_proxy=https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
 
 rm /var/lib/apt/lists/lock
 rm /var/cache/apt/archives/lock
