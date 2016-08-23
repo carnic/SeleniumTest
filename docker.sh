@@ -82,8 +82,8 @@ docker exec -it $CNAME /bin/sh -l -c "/var/tmp/$FILE_NAME"
 #echo $DB_C
 dbcontainerip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C)
 #echo $dbcontainerip
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$dbcontainerip:3306/g' /var/www/html/dbconfig.php"
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$dbcontainerip:3306/g' /var/www/html/dbconfig.php"
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
 
 
 
