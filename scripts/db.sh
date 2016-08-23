@@ -37,7 +37,7 @@ mysql -u root -proot -e "FLUSH PRIVILEGES;"
 
 apt-get -y install zip
 apt-get -y install subversion
-svn export --non-interactive --trust-server-cert --username carol_pereira@persistent.co.in --password July13Dday https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
+svn export --non-interactive --trust-server-cert --username carol_pereira@persistent.co.in --password August23Vm https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
 
 mkdir /var/tmp/test
 unzip /var/tmp/UserMgmt.zip -d /var/tmp/test
