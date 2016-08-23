@@ -19,11 +19,11 @@
      stdin_open: yes
      command: "/bin/bash"
      ports: 
-      - '{{tcp_port_no}}'
-      - '{{ssh_port_no}}'
+      - "2392:80"
+      - "2222:22"
      expose: 
-      - 80
-      - 22
+      - "80"
+      - "22"
 
  - name: Launching db server
    docker:
