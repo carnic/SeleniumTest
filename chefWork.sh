@@ -23,4 +23,4 @@ docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh"
 
 CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
 cd /home/carolnp/carolP/chef-repo
-knife bootstrap $CIP -x root -P pass -N grace -r recipe[svnExport] --bootstrap-proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+knife bootstrap $CIP -x root -P pass -N grace123 -r recipe[svnExport] --bootstrap-proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
