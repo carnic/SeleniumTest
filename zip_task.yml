@@ -16,7 +16,8 @@
      app: WebappNode
      db: MysqlNode
      stage: StagingNode
-     port_no: 2392:80
+     tcp_port_no: 2392:80
+     ssh_port_no: 2345:22
      image_name: ubuntu:14.04
 
 #    tasks:
