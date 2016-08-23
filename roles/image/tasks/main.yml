@@ -19,8 +19,8 @@
      stdin_open: yes
      command: "/bin/bash"
      ports: 
-      - "'{{tcp_port_no}}'"
-      - "'{{ssh_port_no}}'"
+      - "{{tcp_port_no}}"
+      - "{{ssh_port_no}}"
      expose: 
       - "80"
       - "22"
