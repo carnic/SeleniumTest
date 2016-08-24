@@ -28,12 +28,12 @@ sudo chmod 0777 /var/tmp/test_result.log
 
 #echo "FAILED"
 
-result=$(sed '$!d' /var/tmp/test_result.log)
+#result=$(sed '$!d' /var/tmp/test_result.log)
 #echo $result
-if [ "$result" = "OK" ]; 
-then
-  echo "OK";
-else
-	echo "FAILED";
-fi
+#if [ "$result" = "OK" ]; 
+#then
+#  echo "OK";
+#else
+#	echo "FAILED";
+#fi
 
