@@ -19,7 +19,7 @@
        register: result
      
      - name: Copy test log to host
-       copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root remote_src=True
+       copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root mode=0777 remote_src=True
        
 #     - name: Check if the selenium testing fullfill 90% criteria
 #       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
