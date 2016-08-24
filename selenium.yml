@@ -18,6 +18,9 @@
        script: selenium.sh '{{stage}}'
        register: result
      
+     - name: Copy test log to host
+       copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root 
+       
 #     - name: Check if the selenium testing fullfill 90% criteria
 #       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
 #       when: "'FAILED' in result.stdout_lines"
@@ -40,12 +43,12 @@
      - name: Remove the test environment [stage]
        command: docker rm '{{stage}}'
 
-     - name: Check if the selenium testing fullfill 90% criteria
-       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
-       when: "'FAILED' in result.stdout_lines"
+ #    - name: Check if the selenium testing fullfill 90% criteria
+ #      fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
+ #      when: "'FAILED' in result.stdout_lines"
 
 #       failed_when: "'FAILED' in result.stdout_lines"
-     - debug: var=result   
+#     - debug: var=result   
 #     - name: Fetch file
 #       fetch: src=/var/tmp/test_result.log dest=/var/tmp validate_checksum=no
 #       synchronize: src=/var/tmp/test_result.log dest=rsync://10.80.34.159:/var/tmp/test_result.log
