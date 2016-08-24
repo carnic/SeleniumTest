@@ -16,8 +16,10 @@
 
      - name: Configure staging container and run the selenium tool
        script: seleniumStaging.sh '{{stage}}'
-       register: result
-
+       
+     - name: Copy test log to host
+       copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root 
+       
      - name: stop the test environment [app]
        command: docker stop '{{app}}'
 
@@ -36,12 +38,12 @@
      - name: Remove the test environment [stage]
        command: docker rm '{{stage}}'
 
-     - name: Check if the selenium testing fullfill 100% criteria
-       fail: msg="Selenium doesnt accomplish 100% criteria so stoping the play"
-       when: "'FAILED' in result.stdout_lines"
+#     - name: Check if the selenium testing fullfill 100% criteria
+#       fail: msg="Selenium doesnt accomplish 100% criteria so stoping the play"
+#       when: "'FAILED' in result.stdout_lines"
 
 #       failed_when: "'FAILED' in result.stdout_lines"
-     - debug: var=result   
+#     - debug: var=result   
 #     - name: Fetch file
 #       fetch: src=/var/tmp/test_result.log dest=/var/tmp validate_checksum=no
 #       synchronize: src=/var/tmp/test_result.log dest=rsync://10.80.34.159:/var/tmp/test_result.log
