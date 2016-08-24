@@ -1,7 +1,7 @@
 !/bin/bash
 
 CNAME="$1"
-DBNAME="$1"
+DBNAME="$2"
 CID=$(docker inspect --format {{.Id}} $CNAME)
 FILE_NAME="sshSetup.sh"
 
