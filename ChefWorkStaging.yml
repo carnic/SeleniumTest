@@ -1,0 +1,16 @@
+---
+ -  hosts: mine
+    any_errors_fatal: true
+    environment:
+        http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+        https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+    vars:
+     app: StageWebappNode
+     db: StageMysqlNode
+    tasks:
+
+     - name: Copy config files
+       copy: src=scripts/sshSetup.sh dest=/var/tmp/sshSetup.sh owner=root group=root mode=0777
+
+     - name: Configure staging container and run the selenium tool
+       script: chefWork.sh '{{app}}' '{{db}}'
