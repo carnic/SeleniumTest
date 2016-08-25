@@ -24,7 +24,9 @@
 #     - name: Check if the selenium testing fullfill 90% criteria
 #       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
 #       when: "'FAILED' in result.stdout_lines"
-
+     - name: removing ssh host of WebappNode
+       command: ssh-keygen -R $(docker inspect --format '{{ .Config.Hostname }}' '{{app}}')
+       
      - name: stop the test environment [app]
        command: docker stop '{{app}}'
 
@@ -42,6 +44,7 @@
 
      - name: Remove the test environment [stage]
        command: docker rm '{{stage}}'
+       
 
  #    - name: Check if the selenium testing fullfill 90% criteria
  #      fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
