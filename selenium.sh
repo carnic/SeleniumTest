@@ -24,7 +24,7 @@ docker exec -it $CNAME /bin/sh -l -c "/var/tmp/AutomationTest.sh"
 
 docker cp $CNAME:/root/TestSuite/test_result.log /var/tmp/test_result.log
 sudo chmod 0777 /var/tmp/test_result.log
-CHostname=$(docker inspect --format '{{ .Config.Hostname }}' $CNAME)
+CHostname=$(docker inspect --format '{{ .Config.Hostname }}' "$2")
 ssh-keygen -R $CHostname
 #echo "FAILED"
 
