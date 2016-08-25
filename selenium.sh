@@ -1,6 +1,7 @@
 !/bin/bash
 
 CNAME="$1"
+WANNAME="$2"
 CID=$(docker inspect   --format {{.Id}} $CNAME)
 FILE_NAME="AutomationTest.sh"
 
@@ -24,7 +25,7 @@ docker exec -it $CNAME /bin/sh -l -c "/var/tmp/AutomationTest.sh"
 
 docker cp $CNAME:/root/TestSuite/test_result.log /var/tmp/test_result.log
 sudo chmod 0777 /var/tmp/test_result.log
-CHostname=$(docker inspect --format '{{ .Config.Hostname }}' "$2")
+CHostname=$(docker inspect --format '{{ .Config.Hostname }}' $WANNAME)
 ssh-keygen -R $CHostname
 #echo "FAILED"
 
