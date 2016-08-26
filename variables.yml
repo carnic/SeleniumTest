@@ -5,7 +5,7 @@ TEST_TEST_SERVER: "TestTestNode"
 TEST_APP_PORT: "2392:80"
 IMAGE_NAME: "ubuntu:14.04"
 
-STAGE_APP_SERVER: "SatgeWebbappNode"
+STAGE_APP_SERVER: "StageWebbappNode"
 STAGE_DB_SERVER: "StageDbNode"
 STAGE_TEST_SERVER: "StageTestNode"
 STAGE_APP_PORT: "2393:80"
@@ -19,7 +19,7 @@ PROXY_HTTP: "http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:
 PROXY_HTTPS: "https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
 
 DOCKER_FILE_MGM_NODE: "/var/tmp/mgmt"
-DOCKER_FILE_SQL_NODE: "var/tmp"
+DOCKER_FILE_SQL_NODE: "/var/tmp"
 
 DOCKER_MGM_IMAGE_NAME: "santosh/mysql_cluster_mgm:1.0"
 DOCKER_SQL_IMAGE_NAME: "santosh/mysql_cluster_sql:1.0"
