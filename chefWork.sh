@@ -1,9 +1,11 @@
 !/bin/bash
 
 CNAME="$1"
-DBNAME="$2"
+#DBNAME="$2"
 CID=$(docker inspect --format {{.Id}} $CNAME)
 FILE_NAME="sshSetup.sh"
+DB_C1="$2"
+DB_C2="$3"
 
 if [ -n "$CID" ] ; then
     if [ -f  /var/lib/docker/image/aufs/layerdb/mounts/$CID/mount-id ] ; then
@@ -23,11 +25,15 @@ docker exec -it $CNAME /bin/sh -l -c "chmod +x /var/tmp/sshSetup.sh"
 docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh"
 
 CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
-DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
+#DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
 sed -i "/$CIP/d" /root/.ssh/known_hosts
 cd /home/carolnp/carolP/chef-repo
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
+dbcontainerip1=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C1)
+dbcontainerip2=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C2)
+docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE1_IP/$dbcontainerip1/g' /var/www/html/dbconfig.php"
+docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE2_IP/$dbcontainerip2/g' /var/www/html/dbconfig.php"
