@@ -21,5 +21,4 @@ RUN cd /var/tmp/mysql-cluster/ && tar -xzvf mysql-cluster-gpl-7.4.12-linux-glibc
 
 RUN mkdir /var/lib/mysql-cluster
 RUN mkdir /usr/local/mysql/ && mkdir /usr/local/mysql/mysql-cluster
-RUN pwd
 COPY config.ini /var/lib/mysql-cluster/config.ini
