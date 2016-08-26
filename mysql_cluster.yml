@@ -19,7 +19,15 @@
         
       - name: Copying Dockerfile for management node
         copy: src=mgmt/Dockerfile dest=/var/tmp/mgmt/Dockerfile  owner=root group=root mode=0777
+      
+      - name: Copying config.ini for management node
         copy: src=mgmt/config.ini dest=/var/tmp/mgmt/config.ini  owner=root group=root mode=0777
+      
+      - name: Copying Dockerfile for mysql node
+        copy: src=Dockerfile dest=/var/tmp/Dockerfile  owner=root group=root mode=0777
+      
+      - name: Copying config.ini for mysql node
+        copy: src=config.ini dest=/var/tmp/config.ini  owner=root group=root mode=0777
         
       - name: Preparing image for management node
         command: docker build -t '{{ DOCKER_MGM_IMAGE_NAME }}' '{{ DOCKER_FILE_MGM_NODE }}'
