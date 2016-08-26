@@ -15,7 +15,7 @@
         copy: src=Dockerfile dest=/var/tmp  owner=root group=root mode=0777
         
       - name: Preparing image for management node
-        command: mkdir -p /var/tmp/mgmt
+        file: path=/var/tmp/mgmt state=directory mode=0755
         
       - name: Copying Dockerfile for management node
         copy: src=mgmt/Dockerfile dest=/var/tmp/mgmt/Dockerfile  owner=root group=root mode=0777
