@@ -11,6 +11,15 @@
       - name: Define required variables
         include_vars: variables.yml
 
+      - name: Copying Dockerfile for mysql node
+        copy: src=Dockerfile dest=/var/tmp  owner=root group=root mode=0777
+        
+      - name: Preparing image for management node
+        command: mkdir /var/tmp/mgmt
+        
+      - name: Copying Dockerfile for management node
+        copy: src=mgmt/Dockerfile dest=/var/tmp/mgmt/Dockerfile  owner=root group=root mode=0777
+        
       - name: Preparing image for management node
         command: docker build -t '{{ DOCKER_MGM_IMAGE_NAME }}' '{{ DOCKER_FILE_MGM_NODE }}'
 
