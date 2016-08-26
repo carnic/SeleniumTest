@@ -1,0 +1,30 @@
+---
+TEST_APP_SERVER: "TestWebappNode"
+TEST_DB_SERVER: "TestDbNode"
+TEST_TEST_SERVER: "TestTestNode"
+TEST_APP_PORT: "2392:80"
+IMAGE_NAME: "ubuntu:14.04"
+
+STAGE_APP_SERVER: "SatgeWebbappNode"
+STAGE_DB_SERVER: "StageDbNode"
+STAGE_TEST_SERVER: "StageTestNode"
+STAGE_APP_PORT: "2393:80"
+
+SELENIUM_AUTOMATION_FILE_TEST: "AutomationTest.sh"
+SELENIUM_AUTOMATION_FILE_STAGE: "AutomationTest_stage.sh"
+LOG_FILE_SELENIUM_TEST: "test_result.log"
+LOG_FILE_SELENIUM_STAGE: "test_result_stage.log"
+
+PROXY_HTTP: "http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
+PROXY_HTTPS: "https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
+
+DOCKER_FILE_MGM_NODE: "/home/sandock/Docker23Aug/mgmt"
+DOCKER_FILE_SQL_NODE: "/home/sandock/Docker23Aug"
+
+DOCKER_MGM_IMAGE_NAME: "santosh/mysql_cluster_mgm:1.0"
+DOCKER_SQL_IMAGE_NAME: "santosh/mysql_cluster_sql:1.0"
+
+DATA_NODE_1: "DATA_NODE_1"
+DATA_NODE_2: "DATA_NODE_2"
+MGM_NODE: "MGM_NODE"
+
