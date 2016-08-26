@@ -6,6 +6,7 @@ RUN apt-get update
 RUN apt-get install -y wget
 RUN groupadd mysql
 RUN useradd -g mysql mysql
+RUN wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.4/mysql-cluster-gpl-7.4.12-linux-glibc2.5-x86_64.tar.gz
 
 EXPOSE 80 443
 RUN mkdir /var/tmp/mysql-cluster
