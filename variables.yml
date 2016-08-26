@@ -18,8 +18,8 @@ LOG_FILE_SELENIUM_STAGE: "test_result_stage.log"
 PROXY_HTTP: "http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
 PROXY_HTTPS: "https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
 
-DOCKER_FILE_MGM_NODE: "./mgmt"
-DOCKER_FILE_SQL_NODE: "./"
+DOCKER_FILE_MGM_NODE: "/var/tmp/mgmt"
+DOCKER_FILE_SQL_NODE: "var/tmp"
 
 DOCKER_MGM_IMAGE_NAME: "santosh/mysql_cluster_mgm:1.0"
 DOCKER_SQL_IMAGE_NAME: "santosh/mysql_cluster_sql:1.0"
