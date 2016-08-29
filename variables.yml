@@ -15,8 +15,8 @@ SELENIUM_AUTOMATION_FILE_STAGE: "AutomationTest_stage.sh"
 LOG_FILE_SELENIUM_TEST: "test_result.log"
 LOG_FILE_SELENIUM_STAGE: "test_result_stage.log"
 
-PROXY_HTTP: "http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
-PROXY_HTTPS: "https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080"
+PROXY_HTTP: "http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080"
+PROXY_HTTPS: "https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080"
 
 DOCKER_FILE_MGM_NODE: "/var/tmp/mgmt"
 DOCKER_FILE_SQL_NODE: "/var/tmp"
