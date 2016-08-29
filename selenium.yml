@@ -3,19 +3,21 @@
     any_errors_fatal: true
 #    user: sandock
     environment:
-        http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-        https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+        http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+        https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
     vars:
      stage: StagingNode
      app: WebappNode
      db: MysqlNode
     tasks:
-
+     - name: Include variables
+       include_vars: variables.yml
+       
      - name: Copy config files
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: selenium.sh '{{stage}}' '{{app}}'
+       script: selenium.sh '{{ TEST_TEST_SERVER }}' '{{TEST_APP_SERVER}}'
        register: result
      
      - name: Copy test log to host
@@ -28,22 +30,22 @@
 #       command: ssh-keygen -R $(docker inspect --format '{{ .Config.Hostname }}' '{{app}}')
        
      - name: stop the test environment [app]
-       command: docker stop '{{app}}'
+       command: docker stop '{{ TEST_APP_SERVER }}'
 
      - name: stop the test environment [db]
-       command: docker stop '{{db}}'
+       command: docker stop '{{DATA_NODE_1}}' '{{DATA_NODE_1}}' '{{MGM_NODE}}'
 
      - name: stop the test environment [stage]
-       command: docker stop '{{stage}}'
+       command: docker stop '{{TEST_TEST_SERVER}}'
 
      - name: Remove the test environment [app]
-       command: docker rm '{{app}}'
+       command: docker rm '{{ TEST_APP_SERVER }}'
 
      - name: Remove the test environment [db]
-       command: docker rm '{{db}}'
+       command: docker rm '{{DATA_NODE_1}}' '{{DATA_NODE_1}}' '{{MGM_NODE}}'
 
      - name: Remove the test environment [stage]
-       command: docker rm '{{stage}}'
+       command: docker rm '{{TEST_TEST_SERVER}}'
        
 
  #    - name: Check if the selenium testing fullfill 90% criteria
