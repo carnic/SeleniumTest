@@ -9,7 +9,7 @@
     tasks:
     
      - name: Include variables
-        include_vars: variables.yml
+       include_vars: variables.yml
         
      - name: Copy config files
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
