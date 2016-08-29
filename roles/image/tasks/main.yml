@@ -1,4 +1,7 @@
 ---
+ - name: Include variables
+   include_vars: variables.yml
+ 
  - name: Make sure docker is running
    service:
      name: docker
@@ -7,38 +10,34 @@
  - name: Launching app server
 
    environment:
-     http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-     https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+     http_proxy: PROXY_HTTP
+     https_proxy: PROXY_HTTPS
 
    docker:
-     name: '{{ app }}'
-     image: '{{image_name}}'
+     name: '{{ TEST_APP_SERVER }}'
+     image: '{{ IMAGE_NAME }}'
      pull: always
      state: started
      tty: yes
      stdin_open: yes
      command: "/bin/bash"
-     ports: 
-      - "2392:80"
-      - "2222:22"
-     expose: 
-      - "80"
-      - "22"
+     ports: '{{ TEST_APP_PORT }}'
+     expose: 80
 
- - name: Launching db server
-   docker:
-     image: '{{image_name}}'
-     name: '{{ db }}'
-     pull: always
-     command: "/bin/bash"
-     state: started
-     tty: yes
-     stdin_open: yes
+# - name: Launching db server
+#   docker:
+#     image: '{{image_name}}'
+#     name: '{{ db }}'
+#     pull: always
+#     command: "/bin/bash"
+#     state: started
+#     tty: yes
+#     stdin_open: yes
 
  - name: Launching staging server
    docker:
-     image: '{{image_name}}'
-     name: '{{stage}}'
+     image: '{{ IMAGE_NAME }}'
+     name: '{{TEST_TEST_SERVER}}'
      pull: always
      command: "/bin/bash"
      state: started
@@ -55,13 +54,14 @@
    copy: src=scripts/selenium.sh dest=/var/tmp/selenium.sh owner=root group=root mode=0777
 
  - name: Configuring web app server
-   script: docker.sh '{{ app }}' '{{ db }}'
+   script: docker.sh '{{ TEST_APP_SERVER }}' 
+   # '{{ db }}'
 
- - name: Configuring database server
-   script: docker_for_db.sh '{{ db }}'
+ #- name: Configuring database server
+ #  script: docker_for_db.sh '{{ db }}'
 
  - name: Configuring stagin server
-   script: docker_selenium.sh '{{ stage }}'
+   script: docker_selenium.sh '{{ TEST_TEST_SERVER }}'
 
 
 
