@@ -27,7 +27,7 @@
         copy: src=Dockerfile dest=/var/tmp/Dockerfile  owner=root group=root mode=0777
       
       - name: Copying config.ini for mysql node
-        copy: src=my.cnf dest=/var/tmp/my.cnf  owner=root group=root mode=0777
+        copy: src=my.cnf dest=/var/tmp/my.cnf  owner=root group=root mode=0644
         
       - name: Preparing image for management node
         command: docker build -t '{{ DOCKER_MGM_IMAGE_NAME }}' '{{ DOCKER_FILE_MGM_NODE }}'
