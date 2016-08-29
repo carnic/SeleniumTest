@@ -18,7 +18,7 @@
        script: seleniumStaging.sh '{{ STAGE_TEST_SERVER }}' '{{ STAGE_APP_SERVER }}'
        
      - name: Copy test log to host
-       copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root 
+       fetch: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log flat=yes
        
      #- name: stop the test environment [app]
        #command: docker stop '{{ STAGE_APP_SERVER }}'
