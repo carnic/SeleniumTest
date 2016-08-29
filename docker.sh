@@ -45,7 +45,7 @@ CID=$(docker inspect   --format {{.Id}} $CNAME)
 FILE_NAME="script.sh"
 #ILE_NAME="script_from_host.sh"
 #APP_NAME="app.zip"
-DB_C="$2"
+#DB_C="$2"
 
 if [ -n "$CID" ] ; then
     if [ -f  /var/lib/docker/image/aufs/layerdb/mounts/$CID/mount-id ] ; then
