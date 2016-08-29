@@ -6,8 +6,8 @@
         https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
     vars:
      app: StageWebappNode
-       db1: DATA_NODE_1
-       db2: DATA_NODE_2
+     db1: DATA_NODE_1
+     db2: DATA_NODE_2
     tasks:
 
      - name: Copy config files
