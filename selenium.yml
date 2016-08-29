@@ -33,7 +33,7 @@
        command: docker stop '{{ TEST_APP_SERVER }}'
 
      - name: stop the test environment [db]
-       command: docker stop '{{DATA_NODE_1}}' '{{DATA_NODE_1}}' '{{MGM_NODE}}'
+       command: docker stop '{{DATA_NODE_1}}' '{{DATA_NODE_2}}' '{{MGM_NODE}}'
 
      - name: stop the test environment [stage]
        command: docker stop '{{TEST_TEST_SERVER}}'
@@ -42,7 +42,7 @@
        command: docker rm '{{ TEST_APP_SERVER }}'
 
      - name: Remove the test environment [db]
-       command: docker rm '{{DATA_NODE_1}}' '{{DATA_NODE_1}}' '{{MGM_NODE}}'
+       command: docker rm '{{DATA_NODE_1}}' '{{DATA_NODE_2}}' '{{MGM_NODE}}'
 
      - name: Remove the test environment [stage]
        command: docker rm '{{TEST_TEST_SERVER}}'
