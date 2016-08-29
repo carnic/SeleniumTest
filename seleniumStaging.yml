@@ -3,8 +3,8 @@
     any_errors_fatal: true
 #    user: sandock
     environment:
-        http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-        https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
+        http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+        https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
         
     tasks:
     
@@ -21,22 +21,22 @@
        copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root 
        
      - name: stop the test environment [app]
-       command: docker stop '{{ STAGE_APP_SERVER }}'
+       #command: docker stop '{{ STAGE_APP_SERVER }}'
 
      - name: stop the test environment [db]
-       command: docker stop '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
+       #command: docker stop '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
      - name: stop the test environment [stage]
-       command: docker stop '{{ STAGE_TEST_SERVER }}'
+       #command: docker stop '{{ STAGE_TEST_SERVER }}'
 
      - name: Remove the test environment [app]
-       command: docker rm '{{ STAGE_APP_SERVER }}'
+       #command: docker rm '{{ STAGE_APP_SERVER }}'
 
      - name: Remove the test environment [db]
-       command: docker rm '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
+       #command: docker rm '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
      - name: Remove the test environment [stage]
-       command: docker rm '{{ STAGE_TEST_SERVER }}'
+       #command: docker rm '{{ STAGE_TEST_SERVER }}'
 
 #     - name: Check if the selenium testing fullfill 100% criteria
 #       fail: msg="Selenium doesnt accomplish 100% criteria so stoping the play"
