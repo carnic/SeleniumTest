@@ -20,22 +20,22 @@
      - name: Copy test log to host
        copy: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log owner=root group=root 
        
-     - name: stop the test environment [app]
+     #- name: stop the test environment [app]
        #command: docker stop '{{ STAGE_APP_SERVER }}'
 
-     - name: stop the test environment [db]
+     #- name: stop the test environment [db]
        #command: docker stop '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
-     - name: stop the test environment [stage]
+     #- name: stop the test environment [stage]
        #command: docker stop '{{ STAGE_TEST_SERVER }}'
 
-     - name: Remove the test environment [app]
+     #- name: Remove the test environment [app]
        #command: docker rm '{{ STAGE_APP_SERVER }}'
 
-     - name: Remove the test environment [db]
+     #- name: Remove the test environment [db]
        #command: docker rm '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
-     - name: Remove the test environment [stage]
+     #- name: Remove the test environment [stage]
        #command: docker rm '{{ STAGE_TEST_SERVER }}'
 
 #     - name: Check if the selenium testing fullfill 100% criteria
