@@ -5,7 +5,7 @@
         http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
         https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
     vars:
-     app: StageWebappNode
+     app: StageWebbappNode
      db1: DATA_NODE_1
      db2: DATA_NODE_2
     tasks:
