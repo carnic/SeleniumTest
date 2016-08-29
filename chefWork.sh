@@ -25,7 +25,7 @@ docker exec -it $CNAME /bin/sh -l -c "chmod +x /var/tmp/sshSetup.sh"
 docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh"
 
 CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
-#DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
+DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
 sed -i "/$CIP/d" /root/.ssh/known_hosts
 cd /home/carolnp/carolP/chef-repo
 postfix=$(date +"%H%M%d")
