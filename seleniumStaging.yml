@@ -20,23 +20,23 @@
      - name: Copy test log to host
        fetch: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log flat=yes
        
-     #- name: stop the test environment [app]
-       #command: docker stop '{{ STAGE_APP_SERVER }}'
+     - name: stop the test environment [app]
+       command: docker stop '{{ STAGE_APP_SERVER }}'
 
-     #- name: stop the test environment [db]
-       #command: docker stop '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
+     - name: stop the test environment [db]
+       command: docker stop '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
-     #- name: stop the test environment [stage]
-       #command: docker stop '{{ STAGE_TEST_SERVER }}'
+     - name: stop the test environment [stage]
+       command: docker stop '{{ STAGE_TEST_SERVER }}'
 
-     #- name: Remove the test environment [app]
-       #command: docker rm '{{ STAGE_APP_SERVER }}'
+     - name: Remove the test environment [app]
+       command: docker rm '{{ STAGE_APP_SERVER }}'
 
-     #- name: Remove the test environment [db]
-       #command: docker rm '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
+     - name: Remove the test environment [db]
+       command: docker rm '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
 
-     #- name: Remove the test environment [stage]
-       #command: docker rm '{{ STAGE_TEST_SERVER }}'
+     - name: Remove the test environment [stage]
+       command: docker rm '{{ STAGE_TEST_SERVER }}'
 
 #     - name: Check if the selenium testing fullfill 100% criteria
 #       fail: msg="Selenium doesnt accomplish 100% criteria so stoping the play"
