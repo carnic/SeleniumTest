@@ -31,9 +31,9 @@ cd /home/carolnp/carolP/chef-repo
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
-#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
-dbcontainerip1=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C1)
-dbcontainerip2=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C2)
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE1_IP/$dbcontainerip1/g' /var/www/html/dbconfig.php"
-docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE2_IP/$dbcontainerip2/g' /var/www/html/dbconfig.php"
+docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
+docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
+#dbcontainerip1=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C1)
+#dbcontainerip2=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C2)
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE1_IP/$dbcontainerip1/g' /var/www/html/dbconfig.php"
+#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE2_IP/$dbcontainerip2/g' /var/www/html/dbconfig.php"
