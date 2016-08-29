@@ -19,11 +19,11 @@ docker exec -i $SQL_NODE2 /bin/bash -c "sed -i -e 's/192.168.0.30/$mgm_ip/g' /et
 
 docker exec -i $MGM_NODE /bin/bash -c "ndb_mgmd -f /var/lib/mysql-cluster/config.ini"
 
-#docker exec -i $SQL_NODE1 /bin/bash -c "chmod 644 /etc/my.cnf"
+docker exec -i $SQL_NODE1 /bin/bash -c "chmod 644 /etc/my.cnf"
 docker exec -i $SQL_NODE1 /bin/bash -c "/usr/local/mysql/bin/ndbd"
 docker exec -i $SQL_NODE1 /bin/bash -c "/etc/init.d/mysql start"
 
-#docker exec -i $SQL_NODE2 /bin/bash -c "chmod 644 /etc/my.cnf"
+docker exec -i $SQL_NODE2 /bin/bash -c "chmod 644 /etc/my.cnf"
 docker exec -i $SQL_NODE2 /bin/bash -c "/usr/local/mysql/bin/ndbd"
 docker exec -i $SQL_NODE2 /bin/bash -c "/etc/init.d/mysql start"
 
