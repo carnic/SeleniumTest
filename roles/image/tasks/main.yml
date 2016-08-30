@@ -47,8 +47,8 @@
  - name: Transfering web server related config files
    copy: src=scripts/script.sh dest=/var/tmp/script.sh owner=root group=root mode=0777
 
- - name: Transfering database server related config files
-   copy: src=scripts/db.sh dest=/var/tmp/db.sh owner=root group=root mode=0777
+ #- name: Transfering database server related config files
+ #  copy: src=scripts/db.sh dest=/var/tmp/db.sh owner=root group=root mode=0777
 
  - name: Transfering test environment related config files
    copy: src=scripts/selenium.sh dest=/var/tmp/selenium.sh owner=root group=root mode=0777
