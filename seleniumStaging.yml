@@ -15,7 +15,7 @@
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: seleniumStaging.sh '{{ STAGE_TEST_SERVER }}' '{{ STAGE_APP_SERVER }}'
+       script: seleniumStaging.sh '{{STAGE_URL}}' '{{ STAGE_TEST_SERVER }}' '{{ STAGE_APP_SERVER }}'
        
      - name: Copy test log to host
        fetch: src=/var/tmp/test_result.log dest=/var/tmp/test_result.log flat=yes
