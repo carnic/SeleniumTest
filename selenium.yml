@@ -5,10 +5,7 @@
     environment:
         http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
         https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-    vars:
-     stage: StagingNode
-     app: WebappNode
-     db: MysqlNode
+    
     tasks:
      - name: Include variables
        include_vars: variables.yml
@@ -17,7 +14,7 @@
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: selenium.sh '{{ TEST_TEST_SERVER }}' '{{TEST_APP_SERVER}}'
+       script: selenium.sh '{{ TEST_TEST_SERVER }}' '{{TEST_APP_SERVER}}' '{{TEST_URL}}'
        register: result
      
      - name: Copy test log to host
