@@ -12,13 +12,13 @@
 #    environment:
 #      http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
 #      https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-    vars:
-     app: WebappNode
-     db: MysqlNode
-     stage: StagingNode
-     tcp_port_no: 2392:80
-     ssh_port_no: 2345:22
-     image_name: ubuntu:14.04
+#    vars:
+#     app: WebappNode
+#     db: MysqlNode
+#     stage: StagingNode
+#     tcp_port_no: 2392:80
+#     ssh_port_no: 2345:22
+#     image_name: ubuntu:14.04
 
 #    tasks:
 #     - name: Make sure docker is running
