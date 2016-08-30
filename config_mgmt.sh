@@ -10,12 +10,12 @@ mgm_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $MGM_NODE)
 node1_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $SQL_NODE1)
 node2_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $SQL_NODE2)
 
-docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/192.168.0.30/$mgm_ip/g' /var/lib/mysql-cluster/config.ini"
-docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/192.168.0.10/$node1_ip/g' /var/lib/mysql-cluster/config.ini"
-docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/192.168.0.20/$node2_ip/g' /var/lib/mysql-cluster/config.ini"
+docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/MGM_NODE/$mgm_ip/g' /var/lib/mysql-cluster/config.ini"
+docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/SQL_NODE_1/$node1_ip/g' /var/lib/mysql-cluster/config.ini"
+docker exec -i $MGM_NODE /bin/bash -c "sed -i -e 's/SQL_NODE_2/$node2_ip/g' /var/lib/mysql-cluster/config.ini"
 
-docker exec -i $SQL_NODE1 /bin/bash -c "sed -i -e 's/192.168.0.30/$mgm_ip/g' /etc/my.cnf"
-docker exec -i $SQL_NODE2 /bin/bash -c "sed -i -e 's/192.168.0.30/$mgm_ip/g' /etc/my.cnf"
+docker exec -i $SQL_NODE1 /bin/bash -c "sed -i -e 's/MGM_NODE/$mgm_ip/g' /etc/my.cnf"
+docker exec -i $SQL_NODE2 /bin/bash -c "sed -i -e 's/MGM_NODE/$mgm_ip/g' /etc/my.cnf"
 
 docker exec -i $MGM_NODE /bin/bash -c "ndb_mgmd -f /var/lib/mysql-cluster/config.ini"
 
