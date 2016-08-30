@@ -9,7 +9,7 @@ STAGE_APP_SERVER: "StageWebbappNode"
 STAGE_DB_SERVER: "StageDbNode"
 STAGE_TEST_SERVER: "StageTestNode"
 STAGE_APP_PORT: "2393:80"
-STAGE_URL: "http://10.80.34.148:2393/"
+STAGE_URL: "line='http://10.80.34.148:2393/'"
 
 SELENIUM_AUTOMATION_FILE_TEST: "AutomationTest.sh"
 SELENIUM_AUTOMATION_FILE_STAGE: "AutomationTest_stage.sh"
