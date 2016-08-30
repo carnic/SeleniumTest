@@ -30,7 +30,7 @@ sed -i "/$CIP/d" /root/.ssh/known_hosts
 cd /home/carolnp/carolP/chef-repo
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
-knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
 #docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
 #docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
 dbcontainerip1=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C1)
