@@ -16,7 +16,8 @@ if [ -n "$CID" ] ; then
 fi
 
 # Below code will work on node
-sed -i '2i line="http://10.80.34.148:2393/"' /var/tmp/$FILE_NAME
+url="$3"
+sed -i '2i line="$url"' /var/tmp/$FILE_NAME
 cp /var/tmp/$FILE_NAME $d1/var/tmp/
 
 docker cp $CNAME:/var/tmp/$FILE_NAME $d1/var/tmp/$FILE_NAME
