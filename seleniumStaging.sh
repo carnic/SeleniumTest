@@ -17,7 +17,7 @@ fi
 
 # Below code will work on node
 url="$3"
-#sed -i '2i $url"' /var/tmp/$FILE_NAME
+sed -i '2i $url' /var/tmp/$FILE_NAME
 cp /var/tmp/$FILE_NAME $d1/var/tmp/
 
 docker cp $CNAME:/var/tmp/$FILE_NAME $d1/var/tmp/$FILE_NAME
