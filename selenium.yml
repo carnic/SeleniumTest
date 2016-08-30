@@ -3,9 +3,9 @@
     any_errors_fatal: true
 #    user: sandock
     environment:
-        http_proxy: http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-        https_proxy: https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-    
+        http_proxy: '{{PROXY_HTTP}}'
+        https_proxy: '{{PROXY_HTTPS}}'
+        
     tasks:
      - name: Include variables
        include_vars: variables.yml
