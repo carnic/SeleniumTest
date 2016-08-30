@@ -7,7 +7,11 @@
 #        https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
 
     tasks:
-
+      - name: Make sure docker is running
+        service:
+          name: docker
+          state: restarted
+     
       - name: Define required variables
         include_vars: variables.yml
 
