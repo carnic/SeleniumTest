@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export http_proxy=http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-export https_proxy=https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+export http_proxy="$1"
+export https_proxy="$(echo $1 | sed 's/http/https/g')"
 
 rm -R /root/TestSuite
 mkdir /root/TestSuite
