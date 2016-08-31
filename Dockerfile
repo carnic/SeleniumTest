@@ -1,7 +1,9 @@
 FROM ubuntu:14.04
 
-ENV http_proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-ENV https_proxy http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+ENV http_proxy ${HTTP_PROXY}
+#http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+ENV https_proxy ${HTTPS_PROXY}
+#http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
 RUN apt-get update
 RUN apt-get install -y wget
 RUN apt-get -y install subversion
@@ -11,7 +13,7 @@ RUN apt-get -y install zip
 RUN groupadd mysql
 RUN useradd -g mysql mysql
 
-EXPOSE 80 443
+EXPOSE 22
 RUN mkdir /var/tmp/mysql-cluster
 RUN wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.4/mysql-cluster-gpl-7.4.12-linux-glibc2.5-x86_64.tar.gz -P /var/tmp/mysql-cluster/
 
