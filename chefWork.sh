@@ -22,7 +22,7 @@ fi
 cp /var/tmp/$FILE_NAME $d1/var/tmp/
 docker cp $CNAME:/var/tmp/$FILE_NAME $d1/var/tmp/$FILE_NAME
 docker exec -it $CNAME /bin/sh -l -c "chmod +x /var/tmp/sshSetup.sh"
-docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh"
+docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh $4"
 
 CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
 DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
