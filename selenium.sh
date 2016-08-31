@@ -23,7 +23,7 @@ sed -i "2i $url" /var/tmp/$FILE_NAME
 cp /var/tmp/$FILE_NAME $d1/var/tmp/
 docker cp $CNAME:/var/tmp/$FILE_NAME $d1/var/tmp/$FILE_NAME
 docker exec -it $CNAME /bin/sh -l -c "chmod +x /var/tmp/AutomationTest.sh"
-docker exec -it $CNAME /bin/sh -l -c "/var/tmp/AutomationTest.sh $4"
+docker exec -it $CNAME /bin/sh -l -c "/var/tmp/AutomationTest.sh"
 
 docker cp $CNAME:/root/TestSuite/test_result.log /var/tmp/test_result.log
 sudo chmod 0777 /var/tmp/test_result.log
