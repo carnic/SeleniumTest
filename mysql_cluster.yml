@@ -34,10 +34,10 @@
         copy: src=my.cnf dest=/var/tmp/my.cnf  owner=root group=root mode=0644
         
       - name: Preparing image for management node
-        command: docker build -t '{{ DOCKER_MGM_IMAGE_NAME }}' '{{ DOCKER_FILE_MGM_NODE }}'
+        command: docker build --build-arg HTTP_PROXY='{{PROXY_HTTP}}' --build-arg HTTPS_PROXY='{{PROXY_HTTPS}}' -t '{{ DOCKER_MGM_IMAGE_NAME }}' '{{ DOCKER_FILE_MGM_NODE }}'
 
       - name: Preparing image for data nodes
-        command: docker build -t '{{ DOCKER_SQL_IMAGE_NAME }}' '{{ DOCKER_FILE_SQL_NODE }}'
+        command: docker build --build-arg HTTP_PROXY='{{PROXY_HTTP}}' --build-arg HTTPS_PROXY='{{PROXY_HTTPS}}' -t '{{ DOCKER_SQL_IMAGE_NAME }}' '{{ DOCKER_FILE_SQL_NODE }}'
 
       - name: Launching management node
         docker:
