@@ -77,4 +77,4 @@
 
       - name: Configuring the cluster environment
 #        script: config_mgmt.sh ndb_mgm_24aug sqlnode_1_24aug sqlnode_2_24aug
-        script: config_mgmt.sh '{{ MGM_NODE }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
+        script: config_mgmt.sh '{{ MGM_NODE }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{ SVN_CRED }}'
