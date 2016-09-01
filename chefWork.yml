@@ -15,6 +15,9 @@
         
      - name: Copy config files
        copy: src=scripts/sshSetup.sh dest=/var/tmp/sshSetup.sh owner=root group=root mode=0777
+     
+     - name: Copy config files
+       copy: src=svncreds.json dest=/home/carolnp/carolP/chef-repo/svncreds.json owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
        script: chefWork.sh '{{ TEST_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}'
