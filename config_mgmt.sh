@@ -4,7 +4,9 @@
 MGM_NODE="$1"
 SQL_NODE1="$2"
 SQL_NODE2="$3"
-
+SVN_CRED="$4"
+echo $SVN_CRED |cut -d',' -f1 | read svn_user
+echo $SVN_CRED |cut -d',' -f2 | read svn_pass
 
 mgm_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $MGM_NODE)
 node1_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $SQL_NODE1)
@@ -33,7 +35,7 @@ docker exec -i $SQL_NODE1 /bin/bash -c '/usr/local/mysql/bin/mysql -e "FLUSH PRI
 docker exec -i $SQL_NODE2 /bin/bash -c "/usr/local/mysql/bin/mysql -e \"GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'root';\""
 docker exec -i $SQL_NODE2 /bin/bash -c "/usr/local/mysql/bin/mysql -e \"FLUSH PRIVILEGES;\""
 
-docker exec -i $SQL_NODE1 /bin/bash -c "svn export --non-interactive --trust-server-cert --username santosh_dhanasure@persistent.co.in --password psl15619\#83dob https://svn.persistent.co.in/svn/DevOps_Compt/Santosh%20Dhanasure/CaseStudy/UserMgmt.zip /var/tmp"
+docker exec -i $SQL_NODE1 /bin/bash -c "svn export --non-interactive --trust-server-cert --username $svn_user --password $svn_pass https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp"
 
 docker exec -i $SQL_NODE1 /bin/bash -c "mkdir /var/tmp/app"
 docker exec -i $SQL_NODE1 /bin/bash -c "unzip /var/tmp/UserMgmt.zip -d /var/tmp/app"
