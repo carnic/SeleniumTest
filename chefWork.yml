@@ -19,10 +19,10 @@
      - name: Configure staging container and run the selenium tool
        script: chefWork.sh '{{ TEST_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}'
      
-     - name: Testing apache2 started
-       shell: service apache2 status
-       register: AppResult
+     #- name: Testing apache2 started
+     #  shell: service apache2 status
+     #  register: AppResult
      
-     - name: Check apache2 status
-       fail: msg='apache2 is not running'
-       when: "'apache2 is not running' in AppResult.stdout"
+     #- name: Check apache2 status
+     #  fail: msg='apache2 is not running'
+     #  when: "'apache2 is not running' in AppResult.stdout"
