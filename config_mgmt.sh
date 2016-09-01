@@ -5,8 +5,8 @@ MGM_NODE="$1"
 SQL_NODE1="$2"
 SQL_NODE2="$3"
 SVN_CRED="$4"
-echo $SVN_CRED |cut -d',' -f1 | read svn_user
-echo $SVN_CRED |cut -d',' -f2 | read svn_pass
+svn_user=$(echo $SVN_CRED |cut -d',' -f1)
+svn_pass=$(echo $SVN_CRED |cut -d',' -f2)
 
 mgm_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $MGM_NODE)
 node1_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $SQL_NODE1)
