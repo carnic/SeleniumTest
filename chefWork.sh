@@ -27,9 +27,13 @@ docker exec -it $CNAME /bin/sh -l -c "/var/tmp/sshSetup.sh"
 CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
 DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
 sed -i "/$CIP/d" /root/.ssh/known_hosts
+
 cd /home/carolnp/carolP/chef-repo
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
+
+knife data bag create creds
+knife data bag from file creds svncred.json
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
 knife node delete "grace$postfix" -y
 #docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
