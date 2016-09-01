@@ -20,7 +20,7 @@
        script: chefWork.sh '{{ TEST_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}'
      
      - name: Testing apache2 started
-       command: service apache2 status
+       shell: service apache2 status
        register: AppResult
      
       - name: Check apache2 status
