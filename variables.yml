@@ -1,14 +1,14 @@
 ---
-TEST_APP_SERVER: "TestWebappNode"
-TEST_DB_SERVER: "TestDbNode"
-TEST_TEST_SERVER: "TestTestNode"
+TEST_APP_SERVER: "TestWebappNode_{{ ansible_date_time.epoch }}"
+TEST_DB_SERVER: "TestDbNode_{{ ansible_date_time.epoch }}"
+TEST_TEST_SERVER: "TestTestNode_{{ ansible_date_time.epoch }}"
 TEST_APP_PORT: "2392:80"
 IMAGE_NAME: "ubuntu:14.04"
 TEST_URL: "line='http://10.80.34.148:2392/'"
 
-STAGE_APP_SERVER: "StageWebbappNode"
-STAGE_DB_SERVER: "StageDbNode"
-STAGE_TEST_SERVER: "StageTestNode"
+STAGE_APP_SERVER: "StageWebbappNode_{{ ansible_date_time.epoch }}"
+STAGE_DB_SERVER: "StageDbNode_{{ ansible_date_time.epoch }}"
+STAGE_TEST_SERVER: "StageTestNode_{{ ansible_date_time.epoch }}"
 STAGE_APP_PORT: "2393:80"
 STAGE_URL: "line='http://10.80.34.148:2393/'"
 
@@ -26,9 +26,9 @@ DOCKER_FILE_SQL_NODE: "/var/tmp"
 DOCKER_MGM_IMAGE_NAME: "santosh/mysql_cluster_mgm:1.0"
 DOCKER_SQL_IMAGE_NAME: "santosh/mysql_cluster_sql:1.0"
 
-DATA_NODE_1: "DATA_NODE_1"
-DATA_NODE_2: "DATA_NODE_2"
-MGM_NODE: "MGM_NODE"
+DATA_NODE_1: "DATA_NODE_1_{{ ansible_date_time.epoch }}"
+DATA_NODE_2: "DATA_NODE_2_{{ ansible_date_time.epoch }}"
+MGM_NODE: "MGM_NODE_{{ ansible_date_time.epoch }}"
 
 SVN_CRED: "carol_pereira@persistent.co.in,August23Vm"
 
