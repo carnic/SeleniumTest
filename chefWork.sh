@@ -28,7 +28,7 @@ CIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CNAME)
 DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
 sed -i "/$CIP/d" /root/.ssh/known_hosts
 
-cd /home/carolnp/carolP/chef-repo
+cd "$5"
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
 sed -i -e "s/username/carol_pereira@persistent.co.in" svncred.json
