@@ -6,6 +6,7 @@ TEST_APP_PORT: "2392:80"
 IMAGE_NAME: "ubuntu:14.04"
 TEST_URL: "line='http://10.80.34.148:2392/'"
 
+#stage
 STAGE_APP_SERVER: "StageWebbappNode"
 STAGE_DB_SERVER: "StageDbNode"
 STAGE_TEST_SERVER: "StageTestNode"
