@@ -30,7 +30,7 @@ DATA_NODE_1: "DATA_NODE_1"
 DATA_NODE_2: "DATA_NODE_2"
 MGM_NODE: "MGM_NODE"
 
-SVN_CRED: "carol_pereira@persistent.co.in,August23Vm"
+SVN_CRED: "carol_pereira@persistent.co.in,August23Vm,https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip"
 
 CHEF_REPO_LOC: "/home/carolnp/carolP/chef-repo/"
 
