@@ -17,10 +17,10 @@
        copy: src=scripts/sshSetup.sh dest=/var/tmp/sshSetup.sh owner=root group=root mode=0777
      
      - name: Copy config files
-       copy: src=svncred.json dest='{{CHEF_REPO_LOC}}'/svncred.json owner=root group=root mode=0777
+       copy: src=svncred.json dest="{{CHEF_REPO_LOC}}svncred.json" owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: chefWork.sh '{{ TEST_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}' '{{CHEF_REPO_LOC}}'
+       script: chefWork.sh '{{ TEST_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}' '{{CHEF_REPO_LOC}}' '{{SVN_CRED}}'
      
      #- name: Testing apache2 started
      #  shell: service apache2 status
