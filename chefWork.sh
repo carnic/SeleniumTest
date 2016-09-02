@@ -32,10 +32,12 @@ sed -i "/$CIP/d" /root/.ssh/known_hosts
 cd "$5"
 svn_user=$(echo $SVN_CRED |cut -d',' -f1)
 svn_pass=$(echo $SVN_CRED |cut -d',' -f2)
+svn_url=$(echo $SVN_CRED |cut -d',' -f3)
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
 sed -i -e "s/uname/$svn_user/" svncred.json
 sed -i -e "s/pwd/$svn_pass/" svncred.json
+sed -i -e "s/url/$svn_url/" svncred.json
 knife data bag create credsvn
 knife data bag from file credsvn svncred.json
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
