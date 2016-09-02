@@ -31,8 +31,8 @@ sed -i "/$CIP/d" /root/.ssh/known_hosts
 cd "$5"
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
-sed -i -e "s/username/carol_pereira@persistent.co.in" svncred.json
-sed -i -e "s/password/August23Vm" svncred.json
+sed -i -e "s/uname/carol_pereira@persistent.co.in" svncred.json
+sed -i -e "s/pass/August23Vm" svncred.json
 knife data bag create credsvn
 knife data bag from file credsvn svncred.json
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
