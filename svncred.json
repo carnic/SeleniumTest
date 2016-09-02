@@ -1,5 +1,6 @@
 {
   "id": "svncred",
   "username": "uname",
-  "password": "pwd"
+  "password": "pwd",
+  "svnlink": "url"
 }
