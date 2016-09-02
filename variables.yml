@@ -32,5 +32,5 @@ MGM_NODE: "MGM_NODE"
 
 SVN_CRED: "carol_pereira@persistent.co.in,August23Vm"
 
-CHEF_REPO_LOC: "/home/carolnp/carolP/chef-repo"
+CHEF_REPO_LOC: "/home/carolnp/carolP/chef-repo/"
 
