@@ -16,4 +16,4 @@
        copy: src=scripts/sshSetup.sh dest=/var/tmp/sshSetup.sh owner=root group=root mode=0777
 
      - name: Configure staging container and run the selenium tool
-       script: chefWork.sh '{{ STAGE_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}'
+       script: chefWork.sh '{{ STAGE_APP_SERVER }}' '{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}' '{{PROXY_HTTP}}' '{{CHEF_REPO_LOC}}'
