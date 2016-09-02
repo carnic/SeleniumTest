@@ -6,6 +6,7 @@ CID=$(docker inspect --format {{.Id}} $CNAME)
 FILE_NAME="sshSetup.sh"
 DB_C1="$2"
 DB_C2="$3"
+SVN_CRED="$6"
 
 if [ -n "$CID" ] ; then
     if [ -f  /var/lib/docker/image/aufs/layerdb/mounts/$CID/mount-id ] ; then
@@ -29,10 +30,12 @@ DBIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $DBNAME)
 sed -i "/$CIP/d" /root/.ssh/known_hosts
 
 cd "$5"
+svn_user=$(echo $SVN_CRED |cut -d',' -f1)
+svn_pass=$(echo $SVN_CRED |cut -d',' -f2)
 postfix=$(date +"%H%M%d")
 #ssh-keygen -R $CHostname
-sed -i -e "s/uname/carol_pereira@persistent.co.in/" svncred.json
-sed -i -e "s/pwd/August23Vm/" svncred.json
+sed -i -e "s/uname/$svn_user/" svncred.json
+sed -i -e "s/pwd/$svn_pass/" svncred.json
 knife data bag create credsvn
 knife data bag from file credsvn svncred.json
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
