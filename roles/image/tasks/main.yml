@@ -60,7 +60,7 @@
  #- name: Configuring database server
  #  script: docker_for_db.sh '{{ db }}'
 
- - name: Configuring stagin server
+ - name: Configuring staging server
    script: docker_selenium.sh '{{ TEST_TEST_SERVER }}'
 
 
