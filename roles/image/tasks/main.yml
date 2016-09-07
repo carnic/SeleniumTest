@@ -1,11 +1,6 @@
 ---
  - name: Include variables
    include_vars: variables.yml
- 
-# - name: Make sure docker is running
-#   service:
-#     name: docker
-#     state: restarted
 
  - name: Launching app server
 
@@ -24,16 +19,6 @@
      ports: '{{ TEST_APP_PORT }}'
      expose: 80
 
-# - name: Launching db server
-#   docker:
-#     image: '{{image_name}}'
-#     name: '{{ db }}'
-#     pull: always
-#     command: "/bin/bash"
-#     state: started
-#     tty: yes
-#     stdin_open: yes
-
  - name: Launching staging server
    docker:
      image: '{{ IMAGE_NAME }}'
@@ -47,18 +32,11 @@
  - name: Transfering web server related config files
    copy: src=scripts/script.sh dest=/var/tmp/script.sh owner=root group=root mode=0777
 
- #- name: Transfering database server related config files
- #  copy: src=scripts/db.sh dest=/var/tmp/db.sh owner=root group=root mode=0777
-
  - name: Transfering test environment related config files
    copy: src=scripts/selenium.sh dest=/var/tmp/selenium.sh owner=root group=root mode=0777
 
  - name: Configuring web app server
    script: docker.sh '{{ TEST_APP_SERVER }}' 
-   # '{{ db }}'
-
- #- name: Configuring database server
- #  script: docker_for_db.sh '{{ db }}'
 
  - name: Configuring staging server
    script: docker_selenium.sh '{{ TEST_TEST_SERVER }}'
