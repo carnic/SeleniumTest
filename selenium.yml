@@ -1,16 +1,10 @@
 ---
  -  hosts: mine
     any_errors_fatal: true
-#    user: sandock
 
     tasks:
      - name: Include variables
        include_vars: variables.yml
-     
-    # - name: Env variables
-    #   environment:
-    #    http_proxy: '{{PROXY_HTTP}}'
-    #    https_proxy: '{{PROXY_HTTPS}}'
        
      - name: Copy config files
        copy: src=scripts/AutomationTest.sh dest=/var/tmp/AutomationTest.sh owner=root group=root mode=0777
@@ -21,12 +15,6 @@
      
      - name: Copy test log to host
        fetch: src=/var/tmp/test_result.log dest=/var/tmp flat=yes
-       
-#     - name: Check if the selenium testing fullfill 90% criteria
-#       fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
-#       when: "'FAILED' in result.stdout_lines"
-#     - name: removing ssh host of WebappNode
-#       command: ssh-keygen -R $(docker inspect --format '{{ .Config.Hostname }}' '{{app}}')
        
      - name: stop the test environment [app]
        command: docker stop '{{ TEST_APP_SERVER }}'
@@ -45,15 +33,3 @@
 
      - name: Remove the test environment [stage]
        command: docker rm '{{TEST_TEST_SERVER}}'
-       
-
- #    - name: Check if the selenium testing fullfill 90% criteria
- #      fail: msg="Selenium doesnt accomplish 90% criteria so stoping the play"
- #      when: "'FAILED' in result.stdout_lines"
-
-#       failed_when: "'FAILED' in result.stdout_lines"
-#     - debug: var=result   
-#     - name: Fetch file
-#       fetch: src=/var/tmp/test_result.log dest=/var/tmp validate_checksum=no
-#       synchronize: src=/var/tmp/test_result.log dest=rsync://10.80.34.159:/var/tmp/test_result.log
-       
