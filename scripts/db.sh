@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export http_proxy=http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-export https_proxy=https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+#<<<<<<< uncomment the following line to set proxy >>>>>>>>>>>>>
+#export http_proxy="http://<username>:<password>@<proxy_url>:<port>"
+#export https_proxy="https://<username>:<password>@<proxy_url>:<port>"
 
 rm /var/lib/apt/lists/lock
 rm /var/cache/apt/archives/lock
@@ -37,7 +38,7 @@ mysql -u root -proot -e "FLUSH PRIVILEGES;"
 
 apt-get -y install zip
 apt-get -y install subversion
-svn export --non-interactive --trust-server-cert --username carol_pereira@persistent.co.in --password August23Vm https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip /var/tmp
+#svn export --non-interactive --trust-server-cert --username <svn_username> --password <svn_password> <svn_location_of_test.py> <svn_location_of_application> /var/tmp
 
 mkdir /var/tmp/test
 unzip /var/tmp/UserMgmt.zip -d /var/tmp/test
