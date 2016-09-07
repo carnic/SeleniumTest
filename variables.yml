@@ -32,7 +32,8 @@ DATA_NODE_1: "DATA_NODE_1"
 DATA_NODE_2: "DATA_NODE_2"
 MGM_NODE: "MGM_NODE"
 
-SVN_CRED: "carol_pereira@persistent.co.in,August23Vm,https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/UserMgmt.zip"
+#<--------uncomment the following and set correct svn creds------->
+#SVN_CRED: "<svn_username>,<svn_password>,<svn_url_of_application>"
 
 CHEF_REPO_LOC: "/home/carolnp/carolP/chef-repo/"
 
