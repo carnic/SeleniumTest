@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export http_proxy=http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
-export https_proxy=https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
+#<<<<<<< uncomment the following line to set proxy >>>>>>>>>>>>>
+#export http_proxy="http://<username>:<password>@<proxy_url>:<port>"
+#export https_proxy="https://<username>:<password>@<proxy_url>:<port>"
 
 apt-get -y update
 apt-get install -y firefox xvfb python-pip subversion
