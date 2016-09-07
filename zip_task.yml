@@ -2,31 +2,5 @@
  -  hosts: mine
     user: root
     any_errors_fatal: true
-#    environment:
-#      http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-#      https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-#    tasks:
-#      - include: tasks/copy_file.yml
-#    tasks:
-#     - apt: name=cache update_cache=yes state=latest
-#    environment:
-#      http_proxy: http://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-#      https_proxy: https://santosh_dhanasure:psl15619%2383dob@ptproxy.persistent.co.in:8080
-#    vars:
-#     app: WebappNode
-#     db: MysqlNode
-#     stage: StagingNode
-#     tcp_port_no: 2392:80
-#     ssh_port_no: 2345:22
-#     image_name: ubuntu:14.04
-
-#    tasks:
-#     - name: Make sure docker is running
-#       service:
-#         name: docker
-#         state: restarted
     roles: 
       - image
-#      - dbserver
-#      - web
-#      - stage
