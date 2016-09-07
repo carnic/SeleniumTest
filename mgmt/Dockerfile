@@ -1,9 +1,7 @@
 FROM ubuntu:14.04
 
 ENV http_proxy ${HTTP_PROXY}
-#http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
 ENV https_proxy ${HTTPS_PROXY}
-#http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080
 RUN apt-get update
 RUN apt-get install -y wget
 RUN groupadd mysql
