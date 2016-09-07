@@ -1,8 +1,4 @@
 ---
-# - name: Make sure docker is running
-#   service:
-#     name: docker
-#     state: restarted
 
  - name: Include variables
    include_vars: variables.yml
@@ -24,16 +20,6 @@
      ports: '{{ STAGE_APP_PORT }}'
      expose: 80
 
-# - name: STAGE ENV - Launching DB server
-#   docker:
-#     image: '{{ IMAGE_NAME }}'
-#     name: '{{ STAGE_DB_SERVER }}'
-#     pull: always
-#     command: "/bin/bash"
-#     state: started
-#     tty: yes
-#     stdin_open: yes
-
  - name: STAGE ENV - Launching selenuim server for automation testing
    docker:
      image: '{{ IMAGE_NAME }}'
@@ -47,18 +33,11 @@
  - name: STAGE ENV - Transfering web server related config files
    copy: src=scripts/script.sh dest=/var/tmp/script.sh owner=root group=root mode=0777
 
-# - name: STAGE ENV - Transfering database server related config files
-#   copy: src=scripts/db.sh dest=/var/tmp/db.sh owner=root group=root mode=0777
-
  - name: STAGE ENV - Transfering test environment related config files
    copy: src=scripts/selenium.sh dest=/var/tmp/selenium.sh owner=root group=root mode=0777
 
  - name: STAGE ENV - Configuring web app server
    script: docker.sh '{{ STAGE_APP_SERVER }}'
-   #'{{ DATA_NODE_1 }}' '{{ DATA_NODE_2 }}'
-
-# - name: STAGE ENV - Configuring database server
-#   script: docker_for_db.sh '{{ STAGE_DB_SERVER }}'
 
  - name: STAGE ENV - Configuring server for selenium testing
    script: docker_selenium.sh '{{ STAGE_TEST_SERVER }}'
