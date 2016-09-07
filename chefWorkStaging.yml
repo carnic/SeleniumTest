@@ -6,11 +6,6 @@
     
      - name: Include variables
        include_vars: variables.yml
-     
-    # - name: Env variables
-    #   environment:
-    #    http_proxy: '{{PROXY_HTTP}}'
-    #    https_proxy: '{{PROXY_HTTPS}}'
        
      - name: Copy config files
        copy: src=scripts/sshSetup.sh dest=/var/tmp/sshSetup.sh owner=root group=root mode=0777
