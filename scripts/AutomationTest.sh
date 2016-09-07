@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export http_proxy="http://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080"
-export https_proxy="https://carol_pereira:August23Vm@hjproxy.persistent.co.in:8080"
+#<<<<<<< uncomment the following line to set proxy >>>>>>>>>>>>>
+#export http_proxy="http://<username>:<password>@<proxy_url>:<port>"
+#export https_proxy="https://<username>:<password>@<proxy_url>:<port>"
 
 rm -R /root/TestSuite
 mkdir /root/TestSuite
@@ -14,7 +15,10 @@ apt-get install -y killall
 nohup Xvfb :10 -ac &
 export DISPLAY=:10
 firefox --safe-mode &
-svn export --non-interactive --trust-server-cert --username carol_pereira@persistent.co.in --password August23Vm https://svn.persistent.co.in/svn/DevOps_Compt/CarolPereira/CaseStudy/test.py /root/TestSuite/test.py
+
+#<<<<<<< uncomment the following line to set proxy >>>>>>>>>>>>>
+#svn export --non-interactive --trust-server-cert --username <svn_username> --password <svn_password> <svn_location_of_test.py> /root/TestSuite/test.py
+
 python /root/TestSuite/test.py
 killall Xvfb
 
