@@ -1,7 +1,6 @@
 !/bin/bash
 
 CNAME="$1"
-#DBNAME="$2"
 CID=$(docker inspect --format {{.Id}} $CNAME)
 FILE_NAME="sshSetup.sh"
 DB_C1="$2"
@@ -34,7 +33,6 @@ svn_user=$(echo $SVN_CRED |cut -d',' -f1)
 svn_pass=$(echo $SVN_CRED |cut -d',' -f2)
 svn_url=$(echo $SVN_CRED |cut -d',' -f3)
 postfix=$(date +"%H%M%d")
-#ssh-keygen -R $CHostname
 sed -i -e "s/uname/$svn_user/" svncred.json
 sed -i -e "s/pwd/$svn_pass/" svncred.json
 sed -i -e "s,url,$svn_url," svncred.json
@@ -42,8 +40,6 @@ knife data bag create credsvn
 knife data bag from file credsvn svncred.json
 knife bootstrap $CIP -x root -P pass -N "grace$postfix" -r recipe[svnExport] --bootstrap-proxy "$4"
 knife node delete "grace$postfix" -y
-#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/localhost/$DBIP:3306/g' /var/www/html/dbconfig.php"
-#docker exec -i $CNAME /bin/bash -c "sed -i -e 's/\"\"/\"root\"/g' /var/www/html/dbconfig.php"
 dbcontainerip1=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C1)
 dbcontainerip2=$(docker inspect -f '{{.NetworkSettings.IPAddress }}' $DB_C2)
 docker exec -i $CNAME /bin/bash -c "sed -i -e 's/NODE1_IP/$dbcontainerip1/g' /var/www/html/dbconfig.php"
